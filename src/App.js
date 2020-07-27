@@ -22,6 +22,7 @@ class App extends Component {
     return (
       <div>
         <Input
+          label='Input'
           onChangeInp={this.handleChangeValue}
           valueProp={this.state.value}
         />
@@ -40,14 +41,17 @@ export default App;
 
 const Input = (props) => {
   return (
-    <input
-      placeholder='input text ...'
-      type='text'
-      value={props.valueProp}
-      onChange={props.onChangeInp}
-    >
-      {}
-    </input>
+    <>
+      <label>{props.label}</label>
+      <input
+        placeholder='input text ...'
+        type='text'
+        value={props.valueProp}
+        onChange={props.onChangeInp}
+      >
+        {}
+      </input>
+    </>
   );
 };
 
