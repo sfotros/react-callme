@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Btn extends Component {
-  render() {
-    return (
-      <div>
-        <button
-          style={{
-            width: 120,
-            height: 40,
-            backgroundColor: this.props.bg,
-            fontFamily: '"Special Elite", cursive',
-          }}
-          onClick={this.props.onClickProp}
-        >
-          {this.props.title}
-        </button>
-      </div>
-    );
-  }
-}
+const Btn = ({ bg, onClickProp, title }) => {
+  return (
+    <div>
+      <button
+        type='submit'
+        style={{
+          width: 120,
+          height: 40,
+          backgroundColor: bg,
+          fontFamily: '"Special Elite", cursive',
+          borderColor: bg,
+          // border: 'none',
+          borderRadius: 4,
+          marginBottom: 18,
+          marginTop: 10,
+        }}
+        onClick={onClickProp}
+      >
+        {title}
+      </button>
+    </div>
+  );
+};
+export default Btn;

@@ -6,10 +6,14 @@ export default class InputBox extends Component {
     inputText: '',
   };
   render() {
-    let placeholder = this.props.placeholder;
-    let errorText = this.props.errorText;
-    let regex = this.props.regex;
-    const { onChangeProps } = this.props;
+    const {
+      onChangeProps,
+      regex,
+      errorText,
+      placeholder,
+      nameProp,
+      value,
+    } = this.props;
     return (
       <div
         style={{
@@ -25,12 +29,14 @@ export default class InputBox extends Component {
       >
         <input
           {...this.props}
+          name={nameProp}
+          value={value}
           type='text'
           placeholder={placeholder}
           onChange={onChangeProps}
           onBlur={(e) => {
             this.setState({
-              error: !RegExp.test(e.target.value),
+              error: !regex.test(e.target.value),
               inputText: e.target.value,
             });
           }}
@@ -42,7 +48,11 @@ export default class InputBox extends Component {
             borderBottom: '1px solid #000',
           }}
         />
-        <span>{errorText}</span>
+        {this.state.error ? (
+          <span style={{ color: '#ba2d65', fontSize: 12, marginTop: 5 }}>
+            {errorText}
+          </span>
+        ) : null}
       </div>
     );
   }
