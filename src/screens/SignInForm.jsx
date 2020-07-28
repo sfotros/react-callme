@@ -16,17 +16,28 @@ export default class SignInForm extends Component {
     let val = e.target.value;
     this.setState({ [nam]: val });
   };
-  //   handleSignIn = (newEntry) => {
-  //     this.setState((prevState) => ({ list: [...prevState.list, newEntry] }));
-  //   };
+  handleSignIn = (newEntry) => {
+    this.setState((prevState) => ({ list: [...prevState.list, newEntry] }));
+  };
   handleSubmitForm = (e) => {
     e.preventDefault();
     let { username, email, phone } = this.state;
     this.props.handleSignIn({ username, email, phone });
-    this.setState({ showMsg: true, username: '', email: '', phone: '' });
+    this.setState({ username: '', email: '', phone: '' });
+  };
+
+  myBtnClick = () => {
+    this.setState({
+      username: this.state.username,
+      showMsg: true,
+    });
   };
 
   render() {
+    let isDisabled =
+      this.state.username === '' ||
+      this.state.email === '' ||
+      this.state.phone === '';
     return (
       <form style={styles.form} onSubmit={this.handleSubmitForm}>
         <h2 style={{ textAlign: 'center' }}>New Contact</h2>
@@ -64,14 +75,8 @@ export default class SignInForm extends Component {
             marginTop: 10,
           }}
         >
-          <Btn
-            title='Submit'
-            bg='#bdbdbd'
-            onClickProp={this.handleSubmitForm}
-          />
-          {this.state.showMsg ? (
-            <span>New entry added to Address Book</span>
-          ) : null}
+          <Btn title='Submit' bg='#bdbdbd' isDisable={isDisabled} />
+          {this.state.showMsg ? <span> added to Address Book</span> : null}
         </div>
       </form>
     );

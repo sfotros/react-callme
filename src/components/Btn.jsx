@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Btn = ({ bg, onClickProp, title }) => {
+const Btn = ({ bg, onClickProp, title, isDisable }) => {
   return (
     <div>
       <button
         type='submit'
+        disabled={isDisable}
         style={{
           width: 120,
           height: 40,
@@ -16,7 +17,6 @@ const Btn = ({ bg, onClickProp, title }) => {
           marginBottom: 18,
           marginTop: 10,
         }}
-        onClick={onClickProp}
       >
         {title}
       </button>

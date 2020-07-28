@@ -30,5 +30,14 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  table: {
+    border: '1px solid white',
+    boxShadow: '2px 2px 10px #1e1e1e',
+    textAlign: 'center',
+  },
+  tableTr: {
+    border: '2px solid black',
+    textAlign: 'center',
+  },
 };
 export default styles;
