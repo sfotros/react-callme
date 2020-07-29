@@ -16,9 +16,9 @@ export default class SignInForm extends Component {
     let val = e.target.value;
     this.setState({ [nam]: val });
   };
-  handleSignIn = (newEntry) => {
-    this.setState((prevState) => ({ list: [...prevState.list, newEntry] }));
-  };
+  //   handleSignIn = (newEntry) => {
+  //     this.setState((prevState) => ({ list: [...prevState.list, newEntry] }));
+  //   };
   handleSubmitForm = (e) => {
     e.preventDefault();
     let { username, email, phone } = this.state;
@@ -41,7 +41,6 @@ export default class SignInForm extends Component {
     return (
       <form style={styles.form} onSubmit={this.handleSubmitForm}>
         <h2 style={{ textAlign: 'center' }}>New Contact</h2>
-        {/* <label>Username</label> */}
         <InputBox
           nameProp='username'
           placeholder='Username'
@@ -66,15 +65,7 @@ export default class SignInForm extends Component {
           value={this.state.phone}
           onChangeProps={this.onChangeHandle}
         />
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: 10,
-          }}
-        >
+        <div style={styleBtn}>
           <Btn title='Submit' bg='#bdbdbd' isDisable={isDisabled} />
           {this.state.showMsg ? <span> added to Address Book</span> : null}
         </div>
@@ -82,3 +73,10 @@ export default class SignInForm extends Component {
     );
   }
 }
+const styleBtn = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  marginTop: 10,
+};
