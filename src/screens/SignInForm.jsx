@@ -16,13 +16,14 @@ export default class SignInForm extends Component {
 		let val = e.target.value;
 		this.props.changeItemsProps({ nam, val });
 	};
-	//   handleSignIn = (newEntry) => {
-	//     this.setState((prevState) => ({ list: [...prevState.list, newEntry] }));
-	//   };
+	
 	handleSubmitForm = (e) => {
 		e.preventDefault();
-		this.props.handleSignIn();
+		{!this.props.editMode ? this.props.handleSignIn() : console.log('edit')}
+
 	};
+
+	
 
 	myBtnClick = () => {
 		this.setState({

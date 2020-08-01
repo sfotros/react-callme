@@ -8,25 +8,29 @@ export default class Home extends Component {
 		email: '',
 		phone: '',
 	};
+
 	state = {
 		item: { ...this.initialItem },
 		list: [],
 		editMode: false,
 	};
+
 	handleSignIn = () => {
 		this.setState((prevState) => ({
 			list: [...prevState.list, prevState.item],
 			item: { username: '', email: '', phone: '' },
+			editMode: false
 		}));
 	};
+
 	handleDelete = (allList) => {
 		const filtered = this.state.list.filter((ls) => ls !== allList);
 		this.setState({
 			list: filtered,
 		});
 	};
+
 	handleEdit = (input) => {
-		console.log(input);
 		this.setState({
 			item: input,
 			editMode: true,
@@ -40,6 +44,7 @@ export default class Home extends Component {
 			item: newItem,
 		});
 	};
+
 	render() {
 		return (
 			<div style={styles.body}>
