@@ -1,11 +1,12 @@
-import React from 'react';
-import { Component } from 'react';
+import React from "react";
+import { Component } from "react";
 
 class App extends Component {
   state = {
-    value: '',
+    value: "",
     details: [],
   };
+  //test
   handleChangeValue = (e) => {
     this.setState({
       value: e.target.value,
@@ -15,14 +16,14 @@ class App extends Component {
   handleSubmitBtn = () => {
     this.setState({
       details: [...this.state.details, this.state.value],
-      value: '',
+      value: "",
     });
   };
   render() {
     return (
       <div>
         <Input
-          label='Input'
+          label="Input"
           onChangeInp={this.handleChangeValue}
           valueProp={this.state.value}
         />
@@ -44,8 +45,8 @@ const Input = (props) => {
     <>
       <label>{props.label}</label>
       <input
-        placeholder='input text ...'
-        type='text'
+        placeholder="input text ..."
+        type="text"
         value={props.valueProp}
         onChange={props.onChangeInp}
       >
