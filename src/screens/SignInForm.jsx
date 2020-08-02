@@ -5,9 +5,6 @@ import Btn from '../components/Btn';
 
 export default class SignInForm extends Component {
 	state = {
-		username: '',
-		email: '',
-		phone: '',
 		showMsg: false,
 	};
 
@@ -19,11 +16,11 @@ export default class SignInForm extends Component {
 	
 	handleSubmitForm = (e) => {
 		e.preventDefault();
-		{!this.props.editMode ? this.props.handleSignIn() : console.log('edit')}
+		{!this.props.editMode ? this.props.handleSignIn() : this.props.handleUpdate()}
 
 	};
 
-	
+
 
 	myBtnClick = () => {
 		this.setState({
